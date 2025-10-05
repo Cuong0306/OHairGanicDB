@@ -1,11 +1,61 @@
 {
-  "posts": [
+  "Users": [
     {
-      "id": 1,
-      "title": "hello"
+      "Id": 1,
+      "Email": "alice@example.com",
+      "DisplayName": "Alice",
+      "CreatedAt": "2025-10-01T02:10:00Z",
+      "PasswordHash": "$2b$10$abcdefghijklmnopqrstuv"
+    },
+    {
+      "Id": 2,
+      "Email": "bob@example.com",
+      "DisplayName": "Bob",
+      "CreatedAt": "2025-10-02T04:30:00Z",
+      "PasswordHash": "$2b$10$qrstuvwxyzABCDEFGHIJK"
+    },
+    {
+      "Id": 3,
+      "Email": "guest-9f2a@ohair.app",
+      "DisplayName": "Guest",
+      "CreatedAt": "2025-10-05T11:00:00Z",
+      "PasswordHash": null
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "Products": [
+    { "Id": 1, "Name": "O’Hairganic Clean Balance", "Tags": "oily",          "Price": 129000, "ImageUrl": "/img/p1.png", "IsActive": true,  "CreatedAt": "2025-09-20T00:00:00Z" },
+    { "Id": 2, "Name": "O’Hairganic Hydra Soft",     "Tags": "dry",           "Price": 139000, "ImageUrl": "/img/p2.png", "IsActive": true,  "CreatedAt": "2025-09-20T00:00:00Z" },
+    { "Id": 3, "Name": "O’Hairganic Anti-Dandruff",  "Tags": "dandruff",      "Price": 149000, "ImageUrl": "/img/p3.png", "IsActive": true,  "CreatedAt": "2025-09-20T00:00:00Z" },
+    { "Id": 4, "Name": "O’Hairganic Daily Gentle",   "Tags": "normal",        "Price": 109000, "ImageUrl": "/img/p4.png", "IsActive": true,  "CreatedAt": "2025-09-20T00:00:00Z" },
+    { "Id": 5, "Name": "O’Hairganic Purify+Shield",  "Tags": "oily,dandruff", "Price": 159000, "ImageUrl": "/img/p5.png", "IsActive": true,  "CreatedAt": "2025-09-20T00:00:00Z" },
+    { "Id": 6, "Name": "O’Hairganic Kids Gentle",    "Tags": "normal",        "Price": 99000,  "ImageUrl": "/img/p6.png", "IsActive": false, "CreatedAt": "2025-09-25T00:00:00Z" }
+  ],
+  "Captures": [
+    { "Id": 1, "UserId": 1, "Angle": "front", "ImageUrl": "/uploads/u1_front.jpg",  "TakenAt": "2025-10-05T03:00:00Z" },
+    { "Id": 2, "UserId": 1, "Angle": "top",   "ImageUrl": "/uploads/u1_top.jpg",    "TakenAt": "2025-10-05T03:02:00Z" },
+    { "Id": 3, "UserId": 2, "Angle": "front", "ImageUrl": "/uploads/u2_front.jpg",  "TakenAt": "2025-10-05T04:15:00Z" },
+    { "Id": 4, "UserId": 3, "Angle": "back",  "ImageUrl": "/uploads/u3_back.jpg",   "TakenAt": "2025-10-05T05:20:00Z" }
+  ],
+  "Analyses": [
+    { "Id": 1, "CaptureId": 1, "Oiliness": 0.72, "Dryness": 0.10, "DandruffScore": 0.15, "Label": "oily",    "ModelVersion": "rule-v1", "CreatedAt": "2025-10-05T03:03:00Z" },
+    { "Id": 2, "CaptureId": 2, "Oiliness": 0.30, "Dryness": 0.18, "DandruffScore": 0.62, "Label": "dandruff","ModelVersion": "rule-v1", "CreatedAt": "2025-10-05T03:04:00Z" },
+    { "Id": 3, "CaptureId": 3, "Oiliness": 0.15, "Dryness": 0.66, "DandruffScore": 0.12, "Label": "dry",     "ModelVersion": "rule-v1", "CreatedAt": "2025-10-05T04:16:00Z" },
+    { "Id": 4, "CaptureId": 4, "Oiliness": 0.28, "Dryness": 0.22, "DandruffScore": 0.10, "Label": "normal",  "ModelVersion": "rule-v1", "CreatedAt": "2025-10-05T05:21:00Z" }
+  ],
+  "Orders": [
+    { "Id": 1, "UserId": 1, "ProductId": 1, "Status": "CONFIRMED", "CreatedAt": "2025-10-05T06:00:00Z", "TotalAmount": 415200.00 },
+    { "Id": 2, "UserId": 2, "ProductId": 3, "Status": "PENDING",   "CreatedAt": "2025-10-05T06:30:00Z", "TotalAmount": 149000.00 },
+    { "Id": 3, "UserId": 1, "ProductId": 2, "Status": "CANCELLED", "CreatedAt": "2025-10-05T07:10:00Z", "TotalAmount": 139000.00 }
+  ],
+  "OrderDetails": [
+    { "Id": 1, "OrderId": 1, "ProductId": 1, "ProductNameSnap": "O’Hairganic Clean Balance", "UnitPrice": 129000.00, "Quantity": 1, "DiscountPct": 0.00, "LineAmount": 129000.00, "Note": null, "CreatedAt": "2025-10-05T06:00:10Z" },
+    { "Id": 2, "OrderId": 1, "ProductId": 5, "ProductNameSnap": "O’Hairganic Purify+Shield",  "UnitPrice": 159000.00, "Quantity": 2, "DiscountPct": 10.00, "LineAmount": 286200.00, "Note": "combo", "CreatedAt": "2025-10-05T06:00:12Z" },
+    { "Id": 3, "OrderId": 2, "ProductId": 3, "ProductNameSnap": "O’Hairganic Anti-Dandruff",  "UnitPrice": 149000.00, "Quantity": 1, "DiscountPct": 0.00,  "LineAmount": 149000.00, "Note": null, "CreatedAt": "2025-10-05T06:30:05Z" },
+    { "Id": 4, "OrderId": 3, "ProductId": 2, "ProductNameSnap": "O’Hairganic Hydra Soft",     "UnitPrice": 139000.00, "Quantity": 1, "DiscountPct": 0.00,  "LineAmount": 139000.00, "Note": null, "CreatedAt": "2025-10-05T07:10:03Z" }
+  ],
+  "Payments": [
+    { "Id": 1, "OrderId": 1, "Amount": 415200.00, "Currency": "VND", "Provider": "BANK_TRANSFER_QR", "QrPayload": "PAY|ORDER=1|AMT=415200|ACC=0123456789|BANK=TCB|NOTE=OHair-1", "QrImagePath": "/qr/1.png", "ExpiresAt": "2025-10-05T06:20:00Z", "Status": "PAID",    "CreatedAt": "2025-10-05T06:00:15Z", "PaidAt": "2025-10-05T06:05:30Z" },
+    { "Id": 2, "OrderId": 2, "Amount": 149000.00, "Currency": "VND", "Provider": "BANK_TRANSFER_QR", "QrPayload": "PAY|ORDER=2|AMT=149000|ACC=0123456789|BANK=TCB|NOTE=OHair-2", "QrImagePath": "/qr/2.png", "ExpiresAt": "2025-10-05T06:50:00Z", "Status": "PENDING", "CreatedAt": "2025-10-05T06:30:10Z", "PaidAt": null },
+    { "Id": 3, "OrderId": 3, "Amount": 139000.00, "Currency": "VND", "Provider": "BANK_TRANSFER_QR", "QrPayload": "PAY|ORDER=3|AMT=139000|ACC=0123456789|BANK=TCB|NOTE=OHair-3", "QrImagePath": "/qr/3.png", "ExpiresAt": "2025-10-05T07:30:00Z", "Status": "FAILED",  "CreatedAt": "2025-10-05T07:10:10Z", "PaidAt": null }
+  ]
 }
